@@ -1,0 +1,72 @@
+{
+  "records": {
+    "Juego de Prueba": [
+      {
+        "gameName": "Juego de Prueba",
+        "score": 130,
+        "date": "Nov 18, 2025, 4:52:49 PM"
+      },
+      {
+        "gameName": "Juego de Prueba",
+        "score": 100,
+        "date": "Nov 18, 2025, 4:52:45 PM"
+      },
+      {
+        "gameName": "Juego de Prueba",
+        "score": 60,
+        "date": "Nov 18, 2025, 4:52:40 PM"
+      }
+    ],
+    "Snake": [
+      {
+        "gameName": "Snake",
+        "score": 0,
+        "date": "Nov 18, 2025, 5:04:12 PM"
+      },
+      {
+        "gameName": "Snake",
+        "score": 0,
+        "date": "Nov 18, 2025, 5:04:39 PM"
+      },
+      {
+        "gameName": "Snake",
+        "score": 0,
+        "date": "Nov 18, 2025, 5:04:56 PM"
+      }
+    ],
+    "Clicker Fácil": [
+      {
+        "gameName": "Clicker Fácil",
+        "score": 160,
+        "date": "Nov 20, 2025, 1:11:50 AM"
+      },
+      {
+        "gameName": "Clicker Fácil",
+        "score": 80,
+        "date": "Nov 20, 2025, 1:11:44 AM"
+      },
+      {
+        "gameName": "Clicker Fácil",
+        "score": 20,
+        "date": "Nov 19, 2025, 9:31:17 PM"
+      }
+    ],
+    "Tic-Tac-Toe": [
+      {
+        "gameName": "Tic-Tac-Toe",
+        "score": 120,
+        "date": "Nov 20, 2025, 1:11:06 AM"
+      },
+      {
+        "gameName": "Tic-Tac-Toe",
+        "score": 110,
+        "date": "Nov 20, 2025, 1:10:48 AM"
+      },
+      {
+        "gameName": "Tic-Tac-Toe",
+        "score": 110,
+        "date": "Nov 20, 2025, 1:11:15 AM"
+      }
+    ]
+  }
+}
