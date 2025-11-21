@@ -20,6 +20,11 @@
     "Snake": [
       {
         "gameName": "Snake",
+        "score": 4,
+        "date": "Nov 21, 2025, 2:30:27 PM"
+      },
+      {
+        "gameName": "Snake",
         "score": 3,
         "date": "Nov 20, 2025, 8:51:44 PM"
       },
@@ -27,11 +32,6 @@
         "gameName": "Snake",
         "score": 3,
         "date": "Nov 20, 2025, 9:36:32 PM"
-      },
-      {
-        "gameName": "Snake",
-        "score": 2,
-        "date": "Nov 20, 2025, 8:56:46 PM"
       }
     ],
     "Clicker Fácil": [
@@ -95,8 +95,18 @@
     "PacMan": [
       {
         "gameName": "PacMan",
-        "score": 800,
-        "date": "Nov 20, 2025, 9:28:15 PM"
+        "score": 1030,
+        "date": "Nov 21, 2025, 3:12:52 PM"
+      },
+      {
+        "gameName": "PacMan",
+        "score": 1010,
+        "date": "Nov 21, 2025, 2:29:47 PM"
+      },
+      {
+        "gameName": "PacMan",
+        "score": 810,
+        "date": "Nov 21, 2025, 2:53:53 PM"
       }
     ]
   }
