@@ -55,16 +55,16 @@ public class MainController implements GameListener {
         try {
             GamePlugin ticTacToe = TicTacToeGame.createInstance();
             availableGames.add(ticTacToe);
-            System.out.println("✅ Tic-Tac-Toe cargado correctamente");
+            System.out.println(" Tic-Tac-Toe cargado correctamente");
 
             GamePlugin ahorcado = AhorcadoGame.createInstance();
             availableGames.add(ahorcado);
-            System.out.println("✅ Ahorcado cargado correctamente");
+            System.out.println(" Ahorcado cargado correctamente");
 
-            System.out.println("✅ Total de juegos internos: " + availableGames.size());
+            System.out.println(" Total de juegos internos: " + availableGames.size());
 
         } catch (Exception e) {
-            System.err.println("❌ Error cargando juegos internos: " + e.getMessage());
+            System.err.println(" Error cargando juegos internos: " + e.getMessage());
             e.printStackTrace();
             handleException("Error cargando juegos internos", e);
         }

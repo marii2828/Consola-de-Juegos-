@@ -173,16 +173,12 @@ public class MainView extends JFrame {
         }
     }
 
-    /**
-     * 🎨 Renderer personalizado para la lista de juegos
-     */
     private class GameListRenderer extends DefaultListCellRenderer {
         @Override
         public Component getListCellRendererComponent(JList<?> list, Object value,
                 int index, boolean isSelected, boolean cellHasFocus) {
             JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
 
-            // Agregar icono según el juego
             String gameName = value.toString();
             String icon = getGameIcon(gameName);
             label.setText(icon + "  " + gameName);
@@ -221,15 +217,11 @@ public class MainView extends JFrame {
         }
     }
 
-    /**
-     * 🎨 Contenedor elegante para el juego
-     */
     private JPanel createElegantGameContainer() {
         JPanel containerPanel = new JPanel(new BorderLayout());
         containerPanel.setBackground(BG_LIGHT);
         containerPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
-        // Contenedor del juego con sombra
         gameContainer = new JPanel(new BorderLayout()) {
             @Override
             protected void paintComponent(Graphics g) {
@@ -237,7 +229,6 @@ public class MainView extends JFrame {
                 Graphics2D g2d = (Graphics2D) g;
                 g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-                // Sombra
                 g2d.setColor(new Color(0, 0, 0, 15));
                 g2d.fillRoundRect(3, 3, getWidth() - 3, getHeight() - 3, 15, 15);
 
