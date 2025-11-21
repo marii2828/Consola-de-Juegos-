@@ -74,7 +74,7 @@ public class MainView extends JFrame {
         topBar.setBorder(BorderFactory.createEmptyBorder(15, 30, 15, 30));
 
         // Título
-        JLabel titleLabel = new JLabel("🎮 GAME HUB PRO");
+        JLabel titleLabel = new JLabel("Plataforma de Juegos");
         titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 28));
         titleLabel.setForeground(Color.WHITE);
 

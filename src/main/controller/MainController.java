@@ -155,7 +155,7 @@ public class MainController implements GameListener {
 
     @Override
     public void onGameFinished(GameEvent event) {
-        System.out.println("🎯 Juego terminado: " + event.getGameName() +
+        System.out.println(" Juego terminado: " + event.getGameName() +
                 " - Puntaje: " + event.getScore());
 
         scoreManager.updateScore(event.getGameName(), event.getScore());
@@ -221,9 +221,6 @@ public class MainController implements GameListener {
         });
     }
 
-    /**
-     * Inicio
-     */
     public static void main(String[] args) {
         MainController controller = MainController.getInstance();
         System.out.println(" Plataforma de Juegos Iniciada");
