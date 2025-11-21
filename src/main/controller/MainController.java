@@ -3,6 +3,7 @@ package controller;
 import model.core.*;
 import model.games.TicTacToeGame;
 import model.games.AhorcadoGame;
+import model.games.PacManGame;
 import model.persistence.ScoreManager;
 import view.MainView;
 import javax.swing.*;
@@ -60,6 +61,10 @@ public class MainController implements GameListener {
             GamePlugin ahorcado = AhorcadoGame.createInstance();
             availableGames.add(ahorcado);
             System.out.println(" Ahorcado cargado correctamente");
+
+            GamePlugin pacMan = PacManGame.createInstance();
+            availableGames.add(pacMan);
+            System.out.println(" PacMan cargado correctamente");
 
             System.out.println(" Total de juegos internos: " + availableGames.size());
 
