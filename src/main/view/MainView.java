@@ -27,6 +27,9 @@ public class MainView extends JFrame {
     private JPanel gameContainer;
     private JLabel scoreLabel;
     private JTextArea scoresArea;
+    private JList<String> gamesList;
+    private List<GamePlugin> currentGamesList;
+    private JPanel gamesPanel;
 
     public MainView(MainController controller) {
         this.controller = controller;
@@ -115,12 +118,12 @@ public class MainView extends JFrame {
         headerPanel.add(title, BorderLayout.CENTER);
 
         // Lista de juegos con renderer personalizado
-        List<GamePlugin> games = controller.getAvailableGames();
-        String[] gameNames = games.stream()
+        currentGamesList = controller.getAvailableGames();
+        String[] gameNames = currentGamesList.stream()
                 .map(GamePlugin::getGameName)
                 .toArray(String[]::new);
 
-        JList<String> gamesList = new JList<>(gameNames);
+        gamesList = new JList<>(gameNames);
         gamesList.setFont(new Font("Segoe UI", Font.PLAIN, 14));
         gamesList.setBackground(BG_LIGHT);
         gamesList.setSelectionBackground(PRIMARY_BLUE);
@@ -132,13 +135,15 @@ public class MainView extends JFrame {
         gamesList.addListSelectionListener(e -> {
             if (!e.getValueIsAdjusting()) {
                 int index = gamesList.getSelectedIndex();
-                if (index >= 0) {
-                    GamePlugin selectedGame = games.get(index);
+                if (index >= 0 && index < currentGamesList.size()) {
+                    GamePlugin selectedGame = currentGamesList.get(index);
                     controller.selectGame(selectedGame);
                     updateScoresDisplay(selectedGame.getGameName());
                 }
             }
         });
+
+        gamesPanel = panel;
 
         JScrollPane scrollPane = new JScrollPane(gamesList);
         scrollPane.setBorder(BorderFactory.createLineBorder(new Color(220, 220, 220), 1));
@@ -148,6 +153,24 @@ public class MainView extends JFrame {
         panel.add(scrollPane, BorderLayout.CENTER);
 
         return panel;
+    }
+
+    public void refreshGamesList() {
+        if (gamesList != null) {
+            currentGamesList = controller.getAvailableGames();
+            String[] gameNames = currentGamesList.stream()
+                    .map(GamePlugin::getGameName)
+                    .toArray(String[]::new);
+
+            gamesList.setListData(gameNames);
+            gamesList.revalidate();
+            gamesList.repaint();
+
+            if (gamesPanel != null) {
+                gamesPanel.revalidate();
+                gamesPanel.repaint();
+            }
+        }
     }
 
     /**

@@ -59,13 +59,30 @@
       },
       {
         "gameName": "Tic-Tac-Toe",
-        "score": 110,
-        "date": "Nov 20, 2025, 1:10:48 AM"
+        "score": 120,
+        "date": "Nov 20, 2025, 5:47:09 PM"
       },
       {
         "gameName": "Tic-Tac-Toe",
         "score": 110,
-        "date": "Nov 20, 2025, 1:11:15 AM"
+        "date": "Nov 20, 2025, 1:10:48 AM"
+      }
+    ],
+    "Ahorcado": [
+      {
+        "gameName": "Ahorcado",
+        "score": 90,
+        "date": "Nov 20, 2025, 5:20:14 PM"
+      },
+      {
+        "gameName": "Ahorcado",
+        "score": 90,
+        "date": "Nov 20, 2025, 5:44:43 PM"
+      },
+      {
+        "gameName": "Ahorcado",
+        "score": 80,
+        "date": "Nov 20, 2025, 5:46:45 PM"
       }
     ]
   }

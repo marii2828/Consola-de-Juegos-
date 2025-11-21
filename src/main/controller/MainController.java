@@ -2,6 +2,7 @@ package controller;
 
 import model.core.*;
 import model.games.TicTacToeGame;
+import model.games.AhorcadoGame;
 import model.persistence.ScoreManager;
 import view.MainView;
 import javax.swing.*;
@@ -36,6 +37,10 @@ public class MainController implements GameListener {
 
         this.pluginLoader = GamePluginLoader.getInstance();
 
+        pluginLoader.setOnPluginAddedCallback(() -> {
+            reloadExternalGames();
+        });
+
         loadInternalGames();
 
         loadExternalGames();
@@ -50,37 +55,69 @@ public class MainController implements GameListener {
         try {
             GamePlugin ticTacToe = TicTacToeGame.createInstance();
             availableGames.add(ticTacToe);
+            System.out.println("✅ Tic-Tac-Toe cargado correctamente");
 
-            System.out.println("✅ Juegos internos cargados: Tic-Tac-Toe");
+            GamePlugin ahorcado = AhorcadoGame.createInstance();
+            availableGames.add(ahorcado);
+            System.out.println("✅ Ahorcado cargado correctamente");
+
+            System.out.println("✅ Total de juegos internos: " + availableGames.size());
 
         } catch (Exception e) {
+            System.err.println("❌ Error cargando juegos internos: " + e.getMessage());
+            e.printStackTrace();
             handleException("Error cargando juegos internos", e);
         }
     }
 
-    // cargar juegos externso
     private void loadExternalGames() {
         try {
             System.out.println("Iniciando carga de plugins externos...");
             pluginLoader.loadExternalGames();
             List<GamePlugin> externalPlugins = pluginLoader.getLoadedPlugins();
 
-            System.out.println(" Plugins encontrados: " + externalPlugins.size());
+            System.out.println("Plugins encontrados: " + externalPlugins.size());
             for (GamePlugin plugin : externalPlugins) {
-                availableGames.add(plugin);
-                System.out.println(" Plugin externo agregado: " + plugin.getGameName());
+                if (!availableGames.contains(plugin)) {
+                    availableGames.add(plugin);
+                    System.out.println("Plugin externo agregado: " + plugin.getGameName());
+                }
             }
 
             if (externalPlugins.isEmpty()) {
-                System.out.println(" No se encontraron plugins externos");
+                System.out.println("No se encontraron plugins externos");
             }
 
-            System.out.println(" Carga de plugins externos completada");
+            System.out.println("Carga de plugins externos completada");
 
         } catch (Exception e) {
-            System.err.println(" Error cargando plugins externos: " + e.getMessage());
+            System.err.println("Error cargando plugins externos: " + e.getMessage());
             e.printStackTrace();
             handleException("Error cargando plugins externos", e);
+        }
+    }
+
+    private void reloadExternalGames() {
+        try {
+            List<GamePlugin> externalPlugins = pluginLoader.getLoadedPlugins();
+
+            boolean updated = false;
+            for (GamePlugin plugin : externalPlugins) {
+                if (!availableGames.contains(plugin)) {
+                    availableGames.add(plugin);
+                    System.out.println("Nuevo plugin detectado: " + plugin.getGameName());
+                    updated = true;
+                }
+            }
+
+            if (updated && view != null) {
+                SwingUtilities.invokeLater(() -> {
+                    view.refreshGamesList();
+                });
+            }
+
+        } catch (Exception e) {
+            System.err.println("Error recargando plugins: " + e.getMessage());
         }
     }
 
